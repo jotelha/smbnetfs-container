@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  smbnetfs:
+    image: smbnetfs
+    build:
+        context: ./compose/local/smbnetfs
+        dockerfile: Dockerfile
+    container_name: smbnetfs
+    cap_add:
+      - CAP_SYS_ADMIN
+    devices:
+      - /dev/fuse
